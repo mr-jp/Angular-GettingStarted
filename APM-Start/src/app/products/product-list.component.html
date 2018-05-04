@@ -33,12 +33,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of filteredProducts'>
                         <td>
                             <img [src]="product.imageUrl" [title]="product.productName" [style.width.px] = 'imageWidth' [style.margin.px] = 'imageMargin' *ngIf='showImage'>
                         </td>
                         <td>{{product.productName | uppercase}}</td> <!-- to uppercase-->
-                        <td>{{product.productCode | lowercase}}</td><!-- to lowercase-->
+                        <td>{{product.productCode | lowercase | convertToSpaces: '|'}}</td><!-- to lowercase-->
                         <td>{{product.releaseDate | date: 'longDate'}}</td>
                         <td>{{product.price | currency: 'MYR' :true: '1.2-2'}}</td> <!-- currency with some options-->
                         <td>{{product.starRating}}</td>
