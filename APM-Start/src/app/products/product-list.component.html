@@ -1,6 +1,6 @@
 <div class='panel panel-primary'>
     <div class="panel-heading">
-        Product List
+        {{pageTitle}}
     </div>
     <div class="panel-body">
         <div class="row">
@@ -41,7 +41,7 @@
                         <td>{{product.productCode | lowercase | convertToSpaces: '|'}}</td><!-- to lowercase-->
                         <td>{{product.releaseDate | date: 'longDate'}}</td>
                         <td>{{product.price | currency: 'MYR' :true: '1.2-2'}}</td> <!-- currency with some options-->
-                        <td>{{product.starRating}}</td>
+                        <td><pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star></td>
                     </tr>
                 </tbody>
             </table>
