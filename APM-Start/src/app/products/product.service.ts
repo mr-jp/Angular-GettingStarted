@@ -18,6 +18,16 @@ export class ProductService {
             .catch(this.handleError);
     }
 
+    getProduct(id: number): Observable<IProduct> {
+        const products = this._http.get<IProduct[]>(this._productUrl)
+            .do(data => {
+                console.log(data);
+            })
+            .catch(this.handleError);
+
+        return;
+    }
+
     private handleError(err: HttpErrorResponse) {
         console.log(err.message);
         return Observable.throw(err.message);

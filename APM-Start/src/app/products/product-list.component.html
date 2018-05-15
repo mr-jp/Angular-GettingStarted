@@ -37,7 +37,7 @@
                         <td>
                             <img [src]="product.imageUrl" [title]="product.productName" [style.width.px] = 'imageWidth' [style.margin.px] = 'imageMargin' *ngIf='showImage'>
                         </td>
-                        <td>{{product.productName | uppercase}}</td> <!-- to uppercase-->
+                        <td><a [routerLink]="['/products', product.productId]">{{product.productName | uppercase}}</a></td> <!-- to uppercase-->
                         <td>{{product.productCode | lowercase | convertToSpaces: '|'}}</td><!-- to lowercase-->
                         <td>{{product.releaseDate | date: 'longDate'}}</td>
                         <td>{{product.price | currency: 'MYR' :true: '1.2-2'}}</td> <!-- currency with some options-->
